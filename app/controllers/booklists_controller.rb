@@ -9,9 +9,11 @@ class BooklistsController < ApplicationController
         # ストロングパラメーターを使用
          book = Book.new(book_params)
         # DBへ保存する
-         book.save
-        # トップ画面へリダイレクト
+         if book.save
         redirect_to booklist_path(book.id)
+         else
+    	render template: "booklist/index"
+     end
     end
 
     def show
