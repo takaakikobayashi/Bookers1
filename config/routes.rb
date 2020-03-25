@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'home/index'
   get 'booklists/new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "top" => "homes#top"
@@ -15,4 +16,6 @@ Rails.application.routes.draw do
 
   delete "booklists/:id" => "booklists#destroy", as: "destroy_booklist"
   
+  root to: "homes#top"
+
 end

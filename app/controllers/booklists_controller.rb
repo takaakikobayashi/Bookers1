@@ -7,12 +7,13 @@ class BooklistsController < ApplicationController
 
     def create
         # ストロングパラメーターを使用
-         book = Book.new(book_params)
+         @book = Book.new(book_params)
         # DBへ保存する
-         if book.save
-        redirect_to booklist_path(book.id)
-         else
-    	render template: "booklist/index"
+         if @book.save
+
+        redirect_to booklist_path(@book.id)
+    else
+    	render action: :new
      end
     end
 
