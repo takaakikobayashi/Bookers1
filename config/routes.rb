@@ -1,20 +1,20 @@
 Rails.application.routes.draw do
   get 'home/index'
-  get 'booklists/new'
+  get 'books/new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "top" => "homes#top"
 
-  post "booklists" => "booklists#create"
+  post "books" => "booklists#create"
 
-  get "booklists" => "booklists#index"
+  get "books" => "booklists#index"
 
-  get "booklists/:id" => "booklists#show", as: "booklist"
+  get "books/:id" => "booklists#show", as: "book"
 
-  get "booklists/:id/edit" => "booklists#edit", as: "edit_booklist"
+  get "books/:id/edit" => "booklists#edit", as: "edit_book"
 
-  patch "booklists/:id" => "booklists#update", as: "update_booklist"
+  patch "books/:id" => "booklists#update", as: "update_book"
 
-  delete "booklists/:id" => "booklists#destroy", as: "destroy_booklist"
+  delete "books/:id" => "booklists#destroy", as: "destroy_book"
   
   root to: "homes#top"
 

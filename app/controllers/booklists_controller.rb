@@ -11,7 +11,7 @@ class BooklistsController < ApplicationController
         # DBへ保存する
          if @book.save
          	flash[:notice] = "Book was successfully created."
-        redirect_to booklist_path(@book.id)
+        redirect_to book_path(@book.id)
     else
     	@books = Book.all
     	render action: :index
@@ -28,7 +28,7 @@ class BooklistsController < ApplicationController
     	@book = Book.find(params[:id])
     	if @book.update(book_params)
     		flash[:notice] = "Book was successfully updated."
-    	redirect_to booklist_path(@book.id)
+    	redirect_to book_path(@book.id)
     else
     	@books = Book.all
     	render action: :edit
@@ -37,7 +37,7 @@ class BooklistsController < ApplicationController
     def destroy
     	book = Book.find(params[:id])
     	book.destroy
-    	redirect_to booklists_path
+    	redirect_to books_path
     end
     private
    
